@@ -2,8 +2,6 @@ import { getLLMProvider } from "./llm/index.js";
 
 const llm = getLLMProvider();
 
-const answer = await llm.generateAnswer(
-  "Answer in one line: What is bail?"
-);
+const answer = await llm.generateAnswer("Say OK");
 
-console.log(answer);
+console.log("LLM says:", answer);
