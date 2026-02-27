@@ -20,9 +20,12 @@ export function retrieveRelevantSections(query, actsData, limit = 5) {
       return sections.some((s) => normalized.startsWith(s.toLowerCase()));
     });
   }
-//   console.log("Detected Acts:", acts);
-//   console.log("Detected Sections:", sections);
-//   console.log("Candidates before ranking:", candidates.length);
+  if (sections.length > 0 && candidates.length === 0) {
+    candidates = actsData.filter((sec) => acts.includes(sec.act));
+  }
+  //   console.log("Detected Acts:", acts);
+  //   console.log("Detected Sections:", sections);
+  //   console.log("Candidates before ranking:", candidates.length);
   const ranked = rankSections(candidates, tokens);
 
   return ranked.slice(0, limit);
