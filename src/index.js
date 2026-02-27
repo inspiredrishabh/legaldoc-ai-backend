@@ -25,22 +25,34 @@
 
 // console.log(results);
 
-import { loadAllActs } from "./loaders/actLoader.js";
-import { retrieveRelevantSections } from "./retrieval/retrieveSections.js";
-import { buildContext } from "./context/contextBuilder.js";
+// import { loadAllActs } from "./loaders/actLoader.js";
+// import { retrieveRelevantSections } from "./retrieval/retrieveSections.js";
+// import { buildContext } from "./context/contextBuilder.js";
 
-const acts = loadAllActs();
+// const acts = loadAllActs();
 
-const sections = retrieveRelevantSections(
-  "What is bail under Section 437 CrPC?",
-  acts
+// const sections = retrieveRelevantSections(
+//   "What is bail under Section 437 CrPC?",
+//   acts
+// );
+
+// console.log("🔍 Retrieved sections count:", sections.length);
+// console.dir(sections, { depth: 2 });
+
+// const context = buildContext(sections);
+
+// console.log("----- CONTEXT START -----");
+// console.log(context);
+// console.log("----- CONTEXT END -----");
+
+import { loadAllQA } from "./loaders/qaLoader.js";
+import { findAnswerFromQA } from "./qa/qaRetriever.js";
+
+const qaData = loadAllQA();
+
+const qaResult = findAnswerFromQA(
+  "What is India according to the Union and its Territory?",
+  qaData,
 );
 
-console.log("🔍 Retrieved sections count:", sections.length);
-console.dir(sections, { depth: 2 });
-
-const context = buildContext(sections);
-
-console.log("----- CONTEXT START -----");
-console.log(context);
-console.log("----- CONTEXT END -----");
+console.log(qaResult);
