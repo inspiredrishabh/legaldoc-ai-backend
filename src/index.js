@@ -45,14 +45,20 @@
 // console.log(context);
 // console.log("----- CONTEXT END -----");
 
-import { loadAllQA } from "./loaders/qaLoader.js";
-import { findAnswerFromQA } from "./qa/qaRetriever.js";
+// import { loadAllQA } from "./loaders/qaLoader.js";
+// import { findAnswerFromQA } from "./qa/qaRetriever.js";
 
-const qaData = loadAllQA();
+// const qaData = loadAllQA();
 
-const qaResult = findAnswerFromQA(
-  "What is India according to the Union and its Territory?",
-  qaData,
-);
+// const qaResult = findAnswerFromQA(
+//   "What are the conditions for granting bail under Section 437 CrPC?",
+//   qaData,
+// );
 
-console.log(qaResult);
+// console.log(qaResult);
+
+import { checkLLMConnection } from "./llm/healthCheck.js";
+
+const isLLMConnected = await checkLLMConnection();
+
+console.log("🤖 LLM connected:", isLLMConnected);
