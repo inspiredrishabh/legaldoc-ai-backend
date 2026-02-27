@@ -57,8 +57,40 @@
 
 // console.log(qaResult);
 
-import { checkLLMConnection } from "./llm/healthCheck.js";
+// import { checkLLMConnection } from "./llm/healthCheck.js";
 
-const isLLMConnected = await checkLLMConnection();
+// const isLLMConnected = await checkLLMConnection();
 
-console.log("🤖 LLM connected:", isLLMConnected);
+// console.log("🤖 LLM connected:", isLLMConnected);
+
+// import { loadAllActs } from "./loaders/actLoader.js";
+// import { loadAllQA } from "./loaders/qaLoader.js";
+// import { askLegalQuestion } from "./pipeline/askLegalQuestion.js";
+
+// const acts = loadAllActs();
+// const qaData = loadAllQA();
+
+// const query =
+//   "What are the conditions for granting bail under Section 437 CrPC?";
+
+// const result = await askLegalQuestion(query, acts, qaData);
+
+// console.log(result);
+
+import { loadAllActs } from "./loaders/actLoader.js";
+import { loadAllQA } from "./loaders/qaLoader.js";
+import { askLegalQuestion } from "./pipeline/askLegalQuestion.js";
+
+console.log("🚀 index.js started");
+
+const acts = loadAllActs();
+const qaData = loadAllQA();
+
+console.log("❓ Asking question...");
+
+const query = "What are the conditions for granting bail under Section 437 CrPC?";
+
+const result = await askLegalQuestion(query, acts, qaData);
+
+console.log("✅ Result:");
+console.log(result);
