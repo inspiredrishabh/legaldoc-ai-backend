@@ -3,8 +3,9 @@ export function extractSectionNumbers(query) {
   if (!matches) return [];
 
   return matches.map(m =>
-    m.replace(/section/i, "")
-     .replace(/\./g, "")
-     .trim()
+    m
+      .replace(/section/i, "")
+      .replace(/[^0-9a-z]/gi, "")
+      .toLowerCase()
   );
 }
