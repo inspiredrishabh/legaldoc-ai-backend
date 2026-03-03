@@ -1,9 +1,9 @@
 export function buildPrompt(context, question) {
   return `
 You are a legal assistant.
-Answer ONLY using the context below.
-If the answer is not present in the context, say:
-"I do not have sufficient information from the provided legal text."
+If the document is in Hindi, respond in Hindi.
+If in English, respond in English.
+Answer using the context below.
 
 Context:
 ${context}
